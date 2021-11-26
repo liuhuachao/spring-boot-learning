@@ -1,4 +1,4 @@
-package com.liuhuachao.springbootwebapi.controller;
+package com.liuhuachao.webapi.controller;
 
 import org.junit.Test;
 import org.junit.Before;

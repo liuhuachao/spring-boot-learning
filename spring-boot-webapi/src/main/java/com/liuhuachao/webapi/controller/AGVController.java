@@ -1,4 +1,4 @@
-package com.liuhuachao.springbootwebapi.controller;
+package com.liuhuachao.webapi.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
