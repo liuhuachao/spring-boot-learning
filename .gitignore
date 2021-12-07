@@ -1,4 +1,9 @@
-*.idea/
+# Folder #
+.idea
+target
+logs
+
+# infomation of module #
 *.iml
 
 # Compiled class file
@@ -18,5 +23,3 @@
 *.zip
 *.tar.gz
 *.rar
-
-
