@@ -4,18 +4,16 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.liuhuachao</groupId>
-	<artifactId>spring-boot-websocket</artifactId>
+	<artifactId>spring-boot-influxdb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
-
-	<name>spring-boot-websocket</name>
-	<description>WebSocket Project for Spring Boot</description>
+	<name>spring-boot-influxdb</name>
+	<description>InfluxDB project for Spring Boot</description>
 
 	<parent>
 		<groupId>com.liuhuachao</groupId>
 		<artifactId>spring-boot-learning</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 
 	<properties>
@@ -41,7 +39,13 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -49,15 +53,9 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-websocket</artifactId>
-			<version>2.3.1.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
+			<groupId>org.influxdb</groupId>
+			<artifactId>influxdb-java</artifactId>
+			<version>2.22</version>
 		</dependency>
 	</dependencies>
 
