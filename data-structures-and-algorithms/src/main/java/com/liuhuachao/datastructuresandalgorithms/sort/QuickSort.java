@@ -25,10 +25,13 @@ public class QuickSort {
 	 * @return
 	 */
 	public static int[] quickSort(int[] arr, int left, int right) {
+		// 从前往后比较的索引
 		int start = left;
+
+		// 从后往前比较的索引
 		int end = right;
 
-		// 基准值，选择第1个元素为基准元素
+		// 基准值，一般选择第1个元素为基准值
 		int key = arr[left];
 
 		// 将比基准值大的都放在右边的序列中，将比基准值小的都放在左边的序列中
@@ -39,9 +42,7 @@ public class QuickSort {
 				end--;
 			}
 			if (arr[end] <= key) {
-				int temp = arr[end];
-				arr[end] = key;
-				key = temp;
+				key = swap(arr, end, key);
 			}
 
 			// 从前往后比较
@@ -49,9 +50,7 @@ public class QuickSort {
 				start++;
 			}
 			if (arr[start] >= key) {
-				int temp = arr[start];
-				arr[start] = key;
-				key = temp;
+				key = swap(arr, start, key);
 			}
 		}
 
@@ -67,4 +66,19 @@ public class QuickSort {
 
 		return arr;
 	}
+
+	/**
+	 * 交换
+	 * @param arr
+	 * @param index
+	 * @param key
+	 * @return
+	 */
+	public static int swap(int[] arr, int index, int key) {
+		int temp = arr[index];
+		arr[index] = key;
+		key = temp;
+		return key;
+	}
+
 }
