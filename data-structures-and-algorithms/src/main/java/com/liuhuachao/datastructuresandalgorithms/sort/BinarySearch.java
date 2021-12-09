@@ -17,22 +17,22 @@ public class BinarySearch {
 	 * @param a
 	 * @return
 	 */
-	public static int binarySearch(int[] arr,int a){
+	public static int binarySearch(int[] arr, int a) {
 		int left = 0;
-		int right = arr.length -1;
+		int right = arr.length - 1;
 		int mid;
 
-		while(left <= right){
-			mid = (left + right)/2;
-			if(arr[mid] == a){
+		while (left <= right) {
+			mid = (left + right) / 2;
+			if (arr[mid] == a) {
 				return mid;
 			}
 			// 如果中间位置的值比待查关键字大，则在序列的左半部分继续执行该查找过程，
-			else if(arr[mid] > a){
+			else if (arr[mid] > a) {
 				right = mid - 1;
 			}
 			// 如果中间位置的值比待查关键字小，则在序列的右半部分继续执行该查找过程，
-			else{
+			else {
 				left = mid + 1;
 			}
 		}
