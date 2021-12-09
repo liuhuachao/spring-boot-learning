@@ -58,7 +58,7 @@ public class Singleton{
 	protected static class Lock2Singleton{
 		private volatile static Lock2Singleton instance;
 		private Lock2Singleton(){};
-		public static synchronized Lock2Singleton getInstance(){
+		public static Lock2Singleton getInstance(){
 			if(null == instance){
 				synchronized (Lock2Singleton.class){
 					if(null == instance){
