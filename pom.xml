@@ -23,7 +23,7 @@
 		<module>spring-boot-websocket</module>
 		<module>spring-boot-aop</module>
 		<module>spring-boot-influxdb</module>
-		<module>data-structures-and-algorithms</module>
+		<module>data-structures</module>
 	</modules>
 
 	<properties>
