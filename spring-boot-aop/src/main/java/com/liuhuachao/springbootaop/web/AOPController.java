@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @date 2021/11/26
  */
 @Controller
-@RequestMapping("api")
+@RequestMapping("aop")
 public class AOPController {
 
 	/**

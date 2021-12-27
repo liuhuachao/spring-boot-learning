@@ -1,6 +1,4 @@
-package com.liuhuachao.datastructuresandalgorithms.sort;
-
-import java.util.Arrays;
+package com.liuhuachao.datastructures.sort;
 
 /**
  * 冒泡排序算法

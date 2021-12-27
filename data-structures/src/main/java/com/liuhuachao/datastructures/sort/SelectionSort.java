@@ -1,4 +1,4 @@
-package com.liuhuachao.datastructuresandalgorithms.sort;
+package com.liuhuachao.datastructures.sort;
 
 /**
  * 选择排序（Selection Sort）

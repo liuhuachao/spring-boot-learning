@@ -1,6 +1,4 @@
-package com.liuhuachao.datastructuresandalgorithms.sort;
-
-import java.util.Arrays;
+package com.liuhuachao.datastructures.sort;
 
 /**
  * 快速排序

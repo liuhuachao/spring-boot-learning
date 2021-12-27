@@ -1,13 +1,13 @@
-package com.liuhuachao.datastructuresandalgorithms;
+package com.liuhuachao.datastructures;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DataStructuresAndAlgorithmsApplication {
+public class DataStructuresApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DataStructuresAndAlgorithmsApplication.class, args);
+		SpringApplication.run(DataStructuresApplication.class, args);
 	}
 
 }

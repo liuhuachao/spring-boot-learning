@@ -50,12 +50,12 @@ public class WebLogAspect {
 	/**
 	 * 应用名称
 	 */
-	private String appName = "AGV";
+	private String appName = "AOP";
 
 	/**
 	 * 接口名称
 	 */
-	private String interfaceName = "MoveMaterial";
+	private String interfaceName = "GET";
 
 	/**
 	 * 方法参数
@@ -93,11 +93,10 @@ public class WebLogAspect {
 		Map<String, Object> parameterMap = objectMapper.readValue(methodParameters,new HashMap<String, Object>().getClass());
 		//endregion
 
-		// 记录下请求内容
-		// appName = Optional.ofNullable(parameterMap.get("appname").toString()).orElseGet(() -> "");
-		// interfaceName = Optional.ofNullable(parameterMap.get("interfacename").toString()).orElseGet(() -> "");
+		appName = method.getDeclaringClass().getName();
+		interfaceName = method.getName();
 
-		String title = String.format("%s应用%s接口请求开始，%s", appName, interfaceName, System.lineSeparator());
+		String title = String.format("应用（%s）方法（%s）请求开始，%s", appName, interfaceName, System.lineSeparator());
 		StringBuilder sb = new StringBuilder(title);
 		sb.append("请求URL：");
 		sb.append(request.getRequestURL().toString());
@@ -139,7 +138,7 @@ public class WebLogAspect {
 		// 消耗时间
 		int spendTime = (int) (endTime - startTime);
 
-		String title = String.format("%s应用%s接口请求结束，%s", appName, interfaceName, System.lineSeparator());
+		String title = String.format("应用（%s）方法（%s）请求结束，%s", appName, interfaceName, System.lineSeparator());
 		StringBuilder sb = new StringBuilder(title);
 		String timeStr = String.format("开始时间：%s,结束时间：%s，消耗时间：%s", startTime, endTime, spendTime);
 		sb.append(timeStr);

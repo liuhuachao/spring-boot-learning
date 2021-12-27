@@ -1,4 +1,4 @@
-package com.liuhuachao.datastructuresandalgorithms.sort;
+package com.liuhuachao.datastructures.sort;
 
 /**
  * 二分查找法
