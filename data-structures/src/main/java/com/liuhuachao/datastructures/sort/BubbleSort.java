@@ -98,4 +98,36 @@ public class BubbleSort {
 		return arr;
 	}
 
+	public static int[] bubbleSort3(int[] arr) {
+		if (null == arr || arr.length == 1) {
+			return arr;
+		}
+
+		for (int i = 0; i < arr.length - 1; i++) {
+			boolean hasSwap = false;
+			for (int j = 0; j < arr.length - 1 - i; j++) {
+				if (arr[j] > arr[j + 1]) {
+					swap(arr, j, j + 1);
+					hasSwap = true;
+				}
+			}
+			if (!hasSwap) {
+				break;
+			}
+		}
+
+		return arr;
+	}
+
+	/**
+	 * 交换
+	 * @param arr 原始数组
+	 * @param i 索引 i
+	 * @param j 索引 j
+	 */
+	private static void swap(int[] arr, int i, int j) {
+		int temp = arr[i];
+		arr[i] = arr[j] ;
+		arr[j] = temp;
+	}
 }

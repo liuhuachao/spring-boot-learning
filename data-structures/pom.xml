@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.liuhuachao</groupId>
-	<artifactId>data-structures-and-algorithms</artifactId>
+	<artifactId>data-structures</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>data-structures-and-algorithms</name>
+	<name>data-structures</name>
 	<description>Data Structures and Algorithms project for Spring Boot</description>
 
 	<parent>
@@ -44,6 +44,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

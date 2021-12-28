@@ -13,70 +13,68 @@ public class QuickSort {
 	 * 快速排序
 	 * 实现原理：选择一个关键值作为基准值，将比基准值大的都放在右边的序列中，将比基准值小的都放在左边的序列中。
 	 * 具体的过程如下：
-	 *（1）从后向前比较，用基准值和最后一个值进行比较。如果比基准值小，则交换位置；如果比基准值大，则继续比较下一个值，直到找到第1个比基准值小的值才交换位置；
-	 *（2）在从后向前找到第1个比基准值小的值并交换位置后，从前向后开始比较。如果有比基准值大的，则交换位置；如果没有，则继续比较下一个，直到找到第1个比基准值大的值才交换位置；
-	 *（3）重复执行以上过程，直到从前向后比较的索引大于等于从后向前比较的索引，则结束一次循环。这时对于基准值来说，左右两边都是有序的数据序列；
-	 *（4）重复循环以上过程，分别比较左右两边的序列，直到整个数据序列有序。
+	 * （1）选择一个基准值（key），以数组的第一个为例
+	 * （2）从右边查找比基准值小的值，再从左边查找比基准值大的值，然后交换
+	 * （3）当左右两边的值相等时（first）,会退出当前循环
+	 * （4）交换 key 和 first 的值，返回 first 所在地址
+	 * （5）递归排序左右两边的序列，直到整个序列有序。
 	 * @param arr
 	 * @param left
 	 * @param right
 	 * @return
 	 */
 	public static int[] quickSort(int[] arr, int left, int right) {
-		// 从前往后比较的索引
-		int start = left;
-
-		// 从后往前比较的索引
-		int end = right;
-
-		// 基准值，一般选择第1个元素为基准值
-		int key = arr[left];
-
-		// 将比基准值大的都放在右边的序列中，将比基准值小的都放在左边的序列中
-		while (end > start) {
-
-			// 从后向前比较
-			while (end > start && arr[end] > key) {
-				end--;
-			}
-			if (arr[end] <= key) {
-				key = swap(arr, end, key);
-			}
-
-			// 从前往后比较
-			while (start < end && arr[start] < key) {
-				start++;
-			}
-			if (arr[start] >= key) {
-				key = swap(arr, start, key);
-			}
-		}
-
-		// 左边序列：递归调用快速排序，不包含基准值
-		if (start > left) {
-			quickSort(arr, left, start - 1);
-		}
-
-		// 右边序列：递归调用快速排序，不包含基准值
-		if (end < right) {
-			quickSort(arr, end + 1, right);
+		if(left < right){
+			int pivotIndex = partition(arr,left,right);
+			quickSort(arr, left, pivotIndex - 1);
+			quickSort(arr, pivotIndex + 1, right);
 		}
 
 		return arr;
 	}
 
 	/**
-	 * 交换
+	 * 获取分区地址
 	 * @param arr
-	 * @param index
-	 * @param key
+	 * @param left
+	 * @param right
 	 * @return
 	 */
-	public static int swap(int[] arr, int index, int key) {
-		int temp = arr[index];
-		arr[index] = key;
-		key = temp;
-		return key;
+	private static int partition(int[] arr,int left,int right){
+		int i = left;
+		int j = right;
+		int key = arr[left];
+
+		while (j != i) {
+			while (j > i && arr[j] >= key) {
+				j--;
+			}
+
+			while (j > i && arr[i] <= key) {
+				i++;
+			}
+
+			if (j > i) {
+				swap(arr, i, j);
+			}
+		}
+
+		arr[left] = arr[i];
+		arr[i] = key;
+
+		return j;
+	}
+
+	/**
+	 * 交换
+	 * @param arr 原始数组
+	 * @param i   索引 i
+	 * @param j   索引 j
+	 */
+	private static void swap(int[] arr, int i, int j) {
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
 	}
 
 }

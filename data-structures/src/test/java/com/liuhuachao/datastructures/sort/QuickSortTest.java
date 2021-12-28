@@ -8,18 +8,18 @@ import org.junit.Before;
 import org.junit.After;
 
 /**
- * BubbleSort Tester.
+ * QuickSort Tester.
  * @author <liuhuachao>
  * @version 1.0
- * @since <pre>12/08/2021</pre>
+ * @since <pre>12/27/2021</pre>
  */
-public class BubbleSortTest {
+public class QuickSortTest {
 
-	private int[] OriginArr = {3,1,2,6,4,5,7};
-	private int[] expectedArr = {1,2,3,4,5,6,7};
+	int[] originArr;
 
 	@Before
 	public void before() throws Exception {
+		originArr = new int[]{5, 7, 2, 6, 4, 3, 1};
 	}
 
 	@After
@@ -27,11 +27,12 @@ public class BubbleSortTest {
 	}
 
 	/**
-	 * Method: bubbleSort(int[] arr)
+	 * Method: quickSort2(int[] arr, int left, int right)
 	 */
 	@Test
-	public void testBubbleSort() throws Exception {
-		int [] actualArr = BubbleSort.bubbleSort(OriginArr);
+	public void testQuickSort() throws Exception {
+		int[] expectedArr = {1, 2, 3, 4, 5, 6, 7};
+		int[] actualArr = QuickSort.quickSort(originArr, 0, originArr.length - 1);
 		boolean equals = Arrays.equals(expectedArr, actualArr);
 		Assert.assertTrue(equals);
 	}
