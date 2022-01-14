@@ -38,7 +38,7 @@ public class CacheServiceInvocationHandlerTest {
 	 */
 	@Test
 	public void testCreateProxy() throws Exception {
-		service = CacheServiceInvocationHandler.createProxy(new CacheServiceImpl(),CacheService.class);
+		service = CacheServiceInvocationHandler.createProxy(new CacheServiceImpl(), CacheService.class);
 		service.m1();
 	}
 

@@ -24,7 +24,7 @@ public class CacheServiceMethodInterceptor implements MethodInterceptor {
 
 		System.out.println("使用 Cglib 动态代理方法调用前");
 
-		Object result = method.invoke(target,objects);
+		Object result = method.invoke(target, objects);
 
 		System.out.println("使用 Cglib 动态代理方法调用后");
 
@@ -37,7 +37,7 @@ public class CacheServiceMethodInterceptor implements MethodInterceptor {
 	 * @param <T>
 	 * @return
 	 */
-	public static <T> T createProxy(T target){
+	public static <T> T createProxy(T target) {
 		Enhancer enhancer = new Enhancer();
 		enhancer.setSuperclass(target.getClass());
 		enhancer.setCallback(new CacheServiceMethodInterceptor(target));

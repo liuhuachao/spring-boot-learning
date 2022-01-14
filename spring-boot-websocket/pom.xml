@@ -15,7 +15,7 @@
 		<groupId>com.liuhuachao</groupId>
 		<artifactId>spring-boot-learning</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 
 	<properties>
@@ -24,19 +24,6 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 	</properties>
-
-	<repositories>
-		<repository>
-			<name>alimaven</name>
-			<id>alimaven</id>
-			<url>https://maven.aliyun.com/repository/public</url>
-		</repository>
-		<repository>
-			<name>influxdb</name>
-			<id>influxdb</id>
-			<url>https://search.maven.org/artifact/org.influxdb/influxdb-java</url>
-		</repository>
-	</repositories>
 
 	<dependencies>
 		<dependency>
