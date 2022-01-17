@@ -5,6 +5,8 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.crypto.SecretKey;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 
 import com.liuhuachao.springbootjwt.domain.User;
 import io.jsonwebtoken.Claims;
@@ -16,6 +18,9 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.util.StringUtils;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
  * JWT 工具类
@@ -25,16 +30,15 @@ import org.springframework.beans.factory.annotation.Value;
 public class JwtUtils {
 
 	/**
+	 * Cookie 名称
+	 */
+	public static final String TOKEN = "token";
+
+	/**
 	 * 到期毫秒数
 	 */
 	@Value("${spring.boot.jwt.validityInMilliseconds:3600000}")
 	private long expirationMilliseconds = 3600000;
-
-	/**
-	 * 秘钥
-	 */
-	@Value("${spring.boot.jwt.issuer:liuhuachao}")
-	private String issuer;
 
 	/**
 	 * 加密方式
@@ -56,7 +60,7 @@ public class JwtUtils {
 		JwtBuilder jwtBuilder = Jwts.builder()
 				.setId(UUID.randomUUID().toString())
 				// 设置签发者
-				.setIssuer("liuhuachao")
+				.setIssuer(user.getOrganization())
 				// 设置签发时间
 				.setIssuedAt(now)
 				// 设置过期时间
@@ -99,6 +103,41 @@ public class JwtUtils {
 		JwtParser parser = Jwts.parserBuilder().setSigningKey(SECRETKEY).build();
 		Claims result = parser.parseClaimsJws(token).getBody();
 		return result;
+	}
+
+	/**
+	 * 保存 Cookie
+	 * @param token
+	 */
+	public static void saveCookie(String token) {
+		Cookie cookie = new Cookie("token", token);
+		cookie.setMaxAge(3600);
+		cookie.setDomain("localhost");
+		cookie.setPath("/");
+		cookie.setHttpOnly(true);
+		((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse().addCookie(cookie);
+	}
+
+	/**
+	 * 获取
+	 * @param request
+	 * @return
+	 */
+	public static String getCookie(HttpServletRequest request,String cookieKey) {
+		String token = null;
+		if (request.getCookies() != null) {
+			for (Cookie cookie : request.getCookies()) {
+				if (cookieKey.equals(cookie.getName())) {
+					token = cookie.getValue();
+					break;
+				}
+			}
+		}
+		if (StringUtils.isEmpty(token)) {
+			token = request.getParameter(cookieKey);
+		}
+
+		return token;
 	}
 
 }

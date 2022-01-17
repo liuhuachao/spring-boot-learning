@@ -11,9 +11,10 @@ public class User {
 	 * @param id
 	 * @param userName
 	 */
-	public User(String id,String userName){
+	public User(String id,String userName,String organization){
 		this.id = id;
 		this.userName = userName;
+		this.organization = organization;
 	}
 
 	/**
@@ -25,6 +26,11 @@ public class User {
 	 * 用户名
 	 */
 	private String userName;
+
+	/**
+	 * 所在组织
+	 */
+	private String organization;
 
 	public String getId() {
 		return id;
@@ -41,4 +47,13 @@ public class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+
+	public String getOrganization() {
+		return organization;
+	}
+
+	public void setOrganization(String organization) {
+		this.organization = organization;
+	}
+
 }
