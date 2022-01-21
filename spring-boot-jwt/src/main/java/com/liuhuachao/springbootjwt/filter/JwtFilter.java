@@ -3,9 +3,7 @@ package com.liuhuachao.springbootjwt.filter;
 import java.io.IOException;
 import java.util.Map;
 
-import javax.servlet.Filter;
 import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,9 +25,8 @@ public class JwtFilter extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 		try {
 			String requestURL = request.getRequestURL().toString();
-			if(!requestURL.endsWith(EXCLUDE_URL))
-			{
-				String token = JwtUtils.getCookie(request,JwtUtils.TOKEN);
+			if (!requestURL.endsWith(EXCLUDE_URL)) {
+				String token = JwtUtils.getCookie(request, JwtUtils.TOKEN);
 				Map map = JwtUtils.checkToken(token);
 				request.setAttribute(USER_NAME_KEY, map.get(USER_NAME_KEY));
 			}
@@ -38,6 +35,6 @@ public class JwtFilter extends OncePerRequestFilter {
 			return;
 		}
 
-		filterChain.doFilter(request,response);
+		filterChain.doFilter(request, response);
 	}
 }
