@@ -15,8 +15,8 @@ import java.util.concurrent.Callable;
  */
 public class MyCallable implements Callable {
 	@Override
-	public Object call() throws Exception {
-		System.out.println("MyCallable 的 call() 方法正在执行……");
+	public Integer call() throws Exception {
+		System.out.println(Thread.currentThread().getName() + " 的 call() 方法正在执行……");
 		return 1;
 	}
 }

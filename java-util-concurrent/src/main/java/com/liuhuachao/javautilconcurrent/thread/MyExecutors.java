@@ -2,7 +2,7 @@ package com.liuhuachao.javautilconcurrent.thread;
 
 /**
  * 多线程实现方式四
- * 使用 Executors 框架创建线程池
+ * 通过线程池（Executors）创建线程
  * Executors 提供了一系列工厂方法用于创建线程池，返回的线程池都实现了 ExecutorService 接口
  * 步骤
  * 1.定义 Runnable 接口实现类 MyExecutors，并重写 run()方法

@@ -2,6 +2,7 @@ package com.liuhuachao.javautilconcurrent.thread;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import org.junit.Test;
 import org.junit.Before; 
@@ -37,6 +38,9 @@ public class MyExecutorsTest {
 		MyExecutors myExecutors = new MyExecutors();
 		for (int i = 0; i < 5; i++) {
 			executorService.execute(myExecutors);
+
+			// Future<Integer> future = executorService.submit(new MyCallable());
+			// Integer result = future.get();
 		}
 
 		System.out.println(Thread.currentThread().getName() + " 线程的 execute() 方法开始执行");

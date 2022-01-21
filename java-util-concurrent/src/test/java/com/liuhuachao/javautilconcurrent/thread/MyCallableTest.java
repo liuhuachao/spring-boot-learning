@@ -30,11 +30,11 @@ public class MyCallableTest {
 	public void testCall() throws Exception {
 		MyCallable myCallable = new MyCallable();
 		FutureTask<Integer> myFutureTask = new FutureTask<>(myCallable);
-		Thread myThread = new Thread(myFutureTask);
+		Thread myThread = new Thread(myFutureTask,"myCallable");
 		myThread.start();
 
 		try {
-			System.out.println("MyCallable 的返回结果：" + myFutureTask.get());
+			System.out.println(myThread.getName() + " 的返回结果：" + myFutureTask.get());
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (ExecutionException e) {

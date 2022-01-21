@@ -31,4 +31,19 @@ public class MyRunnableTest {
 		System.out.println(Thread.currentThread().getName() + " 单元测试完成");
 	}
 
+	/**
+	 * Method: run()
+	 */
+	@Test
+	public void testRun2() throws Exception {
+
+		Thread myThread = new Thread(() ->{
+			System.out.println(Thread.currentThread().getName() + " run() 方法正在执行……(lambda表达式)");
+		},"myRunnable");
+		myThread.start();
+		System.out.println(Thread.currentThread().getName() + " 单元测试完成");
+	}
+
+
+
 } 
