@@ -1,6 +1,7 @@
 package com.liuhuachao.javautilconcurrent.thread;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.ThreadFactory;
 
 /**
  * 多线程实现方式三
@@ -15,8 +16,9 @@ import java.util.concurrent.Callable;
  */
 public class MyCallable implements Callable {
 	@Override
-	public Integer call() throws Exception {
+	public Object call() throws Exception {
 		System.out.println(Thread.currentThread().getName() + " 的 call() 方法正在执行……");
-		return 1;
+		long threadId = Thread.currentThread().getId();
+		return threadId;
 	}
 }
