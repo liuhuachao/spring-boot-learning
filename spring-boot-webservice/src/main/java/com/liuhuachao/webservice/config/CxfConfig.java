@@ -27,22 +27,22 @@ public class CxfConfig {
 	private String webServiceErpUrl;
 
 	@Bean
-	public ServletRegistrationBean cxfServletRegistrationBean(){
-		return new ServletRegistrationBean(new CXFServlet(),"/webservice/*");
+	public ServletRegistrationBean cxfServletRegistrationBean() {
+		return new ServletRegistrationBean(new CXFServlet(), "/webservice/*");
 	}
 
 	@Bean(name = Bus.DEFAULT_BUS_ID)
-	public SpringBus springBus(){
+	public SpringBus springBus() {
 		return new SpringBus();
 	}
 
 	@Bean
-	public JwsWebService jwsWebService(){
+	public JwsWebService jwsWebService() {
 		return new JwsWebServiceImpl();
 	}
 
 	@Bean
-	public ErpWebService erpWebService(){
+	public ErpWebService erpWebService() {
 		return new ErpWebServiceImpl();
 	}
 

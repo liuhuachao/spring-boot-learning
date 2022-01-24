@@ -15,17 +15,17 @@ public class CxfDynamicClient {
 	 */
 	private String wsdlUrl;
 
-	public CxfDynamicClient(String wsdlUrl){
+	public CxfDynamicClient(String wsdlUrl) {
 		this.wsdlUrl = wsdlUrl;
 	}
 
 	/**
 	 * 调用 WebService 方法
-	 * @author liuhuachao
-	 * @date 2022/1/24 17:22
 	 * @param qName WebMethod 方法名
 	 * @param param 输入参数
 	 * @return java.lang.Object
+	 * @author liuhuachao
+	 * @date 2022/1/24 17:22
 	 */
 	public Object invokeWebService(String qName, Object param) throws Exception {
 		JaxWsDynamicClientFactory clientFactory = JaxWsDynamicClientFactory.newInstance();

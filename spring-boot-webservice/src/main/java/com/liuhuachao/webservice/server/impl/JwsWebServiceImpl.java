@@ -2,11 +2,8 @@ package com.liuhuachao.webservice.server.impl;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
-import javax.xml.ws.BindingType;
-import javax.xml.ws.soap.SOAPBinding;
 
 import com.liuhuachao.webservice.server.JwsWebService;
-import org.apache.cxf.binding.soap.SoapBinding;
 
 /**
  * JwsWebService 类
