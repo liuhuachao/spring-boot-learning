@@ -1,33 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.liuhuachao</groupId>
-	<artifactId>spring-boot-learning</artifactId>
+	<artifactId>spring-boot-webservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
-
-	<name>spring-boot-learning</name>
-	<description>Learning project for Spring Boot</description>
+	<name>spring-boot-webservice</name>
+	<description>WebService project for Spring Boot</description>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.0</version>
+		<groupId>com.liuhuachao</groupId>
+		<artifactId>spring-boot-learning</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
 		<relativePath/>
 	</parent>
-
-	<modules>
-		<module>spring-boot-webapi</module>
-		<module>spring-boot-webservice</module>
-		<module>spring-boot-websocket</module>
-		<module>spring-boot-aop</module>
-		<module>spring-boot-influxdb</module>
-		<module>spring-boot-jwt</module>
-		<module>data-structures</module>
-		<module>java-util-concurrent</module>
-	</modules>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -39,12 +26,22 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
+			<version>3.4.2</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
