@@ -1,17 +1,16 @@
 package com.liuhuachao.webservice.client;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
- * CxfDynamicClient Tester.
+ * AxisCall Tester.
  * @author <liuhuachao>
  * @version 1.0
- * @since <pre>01/24/2022</pre>
+ * @since <pre>01/25/2022</pre>
  */
-public class CxfDynamicClientTest {
+public class AxisCallTest {
 
 	@Before
 	public void before() throws Exception {
@@ -22,15 +21,18 @@ public class CxfDynamicClientTest {
 	}
 
 	/**
-	 * Method: invoke(String qName, Object param)
+	 * Method: invoke(String localPart, String[] params)
 	 */
 	@Test
 	public void testInvoke() throws Exception {
 		String wsdlUrl = "http://localhost:8080/webservice/jws?wsdl";
 		String namespaceURI = "http://server.webservice.liuhuachao.com/";
-		CxfDynamicClient client = new CxfDynamicClient(wsdlUrl, namespaceURI);
-		Object[] results = client.invoke("getWeather", "WuHan");
-		Assert.assertEquals(results[0].toString(), "WuHan Sunny 4℃");
+		String methodName = "getWeather";
+		// 输入参数的名字和值
+		String[] params = {"cityName", "WuHan"};
+
+		AxisCall axisCall = new AxisCall(wsdlUrl, namespaceURI);
+		axisCall.invoke(methodName, params);
 	}
 
 } 

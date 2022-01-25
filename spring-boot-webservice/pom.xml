@@ -34,6 +34,23 @@
 			<version>3.4.2</version>
 		</dependency>
 		<dependency>
+			<groupId>com.liferay</groupId>
+			<artifactId>org.apache.axis</artifactId>
+			<version>1.4.LIFERAY-PATCHED-6</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>javax.servlet-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml.rpc</groupId>
+			<artifactId>javax.xml.rpc-api</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
