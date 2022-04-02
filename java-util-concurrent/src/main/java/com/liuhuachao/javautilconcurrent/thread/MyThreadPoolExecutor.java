@@ -19,6 +19,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class MyThreadPoolExecutor extends ThreadPoolExecutor {
 
+	private final int THREAD_NUM = 5;
+
 	/**
 	 * 构造函数
 	 */
@@ -59,13 +61,13 @@ public class MyThreadPoolExecutor extends ThreadPoolExecutor {
 	 * @date 2022/1/22 13:52
 	 */
 	public void createThreadPool() {
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < THREAD_NUM; i++) {
 			// this.execute(new MyRunnable());
 
 			try {
 				Future future = this.submit(new MyCallable());
 				Object result = future.get();
-				System.out.println(Thread.currentThread().getName() + " 的 返回值: " + result.toString());
+				System.out.println(Thread.currentThread().getName() + " 的返回值: " + result.toString());
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			} catch (ExecutionException e) {

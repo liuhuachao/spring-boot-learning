@@ -24,7 +24,7 @@ public class MyRunnableTest {
 	 * Method: run()
 	 */
 	@Test
-	public void testRun() throws Exception {
+	public void testRunnableThread() throws Exception {
 		MyRunnable myRunnable = new MyRunnable();
 		Thread myThread = new Thread(myRunnable);
 		myThread.start();
@@ -35,15 +35,12 @@ public class MyRunnableTest {
 	 * Method: run()
 	 */
 	@Test
-	public void testRun2() throws Exception {
-
+	public void testLamdaThread() throws Exception {
 		Thread myThread = new Thread(() ->{
 			System.out.println(Thread.currentThread().getName() + " run() 方法正在执行……(lambda表达式)");
 		},"myRunnable");
 		myThread.start();
 		System.out.println(Thread.currentThread().getName() + " 单元测试完成");
 	}
-
-
 
 } 

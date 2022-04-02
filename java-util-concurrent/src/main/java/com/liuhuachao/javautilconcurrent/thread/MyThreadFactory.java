@@ -10,15 +10,17 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class MyThreadFactory implements ThreadFactory {
 
-	private static final AtomicInteger poolNumber = new AtomicInteger(1);
-	private final ThreadGroup group;
+	private final ThreadGroup threadGroup;
+	private static final AtomicInteger POOL_NUMBER = new AtomicInteger(1);
 	private final AtomicInteger threadNumber = new AtomicInteger(1);
 	private final String namePrefix;
-	private final boolean daemon;
 	private final Integer priority;
+	private final boolean daemon;
+
+	//region 构造函数
 
 	public MyThreadFactory(){
-		this("pool-" + poolNumber.getAndIncrement());
+		this("pool-" + POOL_NUMBER.getAndIncrement());
 	}
 
 	public MyThreadFactory(String namePrefix){
@@ -35,14 +37,16 @@ public class MyThreadFactory implements ThreadFactory {
 		this.daemon = daemon;
 
 		SecurityManager s = System.getSecurityManager();
-		this.group = (s != null) ? s.getThreadGroup() : Thread.currentThread().getThreadGroup();
+		this.threadGroup = (s != null) ? s.getThreadGroup() : Thread.currentThread().getThreadGroup();
 	}
+
+	//endregion
 
 	@Override
 	public Thread newThread(Runnable runnable) {
 		String threadName = this.namePrefix + "-thread-" + threadNumber.getAndIncrement();
 
-		Thread thread = new Thread(group, runnable, threadName, 0);
+		Thread thread = new Thread(threadGroup, runnable, threadName, 0);
 
 		thread.setPriority(priority);
 
