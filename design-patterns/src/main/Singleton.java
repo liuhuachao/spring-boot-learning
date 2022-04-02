@@ -8,6 +8,18 @@ package main;
 public class Singleton{
 
 	/**
+	 * 饿汉模式
+	 * 饿汉模式指在类中直接定义全局的静态对象的实例并初始化，然后提供一个方法获取该实例对象。
+	 */
+	protected static class HungrySingleton{
+		private static HungrySingleton instance = new HungrySingleton();
+		private HungrySingleton() {}
+		public static HungrySingleton getInstance() {
+			return instance;
+		}
+	}
+
+	/**
 	 * 懒汉模式
 	 * 定义一个私有的静态对象instance，之所以定义instance为静态，是因为静态属性或方法是属于类的，
 	 * 能够很好地保障单例对象的唯一性；然后定义一个加锁的静态方法获取该对象，
@@ -20,18 +32,6 @@ public class Singleton{
 			if (null == instance) {
 				instance = new LazySingleton();
 			}
-			return instance;
-		}
-	}
-
-	/**
-	 * 饿汉模式
-	 * 饿汉模式指在类中直接定义全局的静态对象的实例并初始化，然后提供一个方法获取该实例对象。
-	 */
-	protected static class HungrySingleton{
-		private static HungrySingleton instance = new HungrySingleton();
-		private HungrySingleton() {}
-		public static HungrySingleton getInstance() {
 			return instance;
 		}
 	}
@@ -64,8 +64,8 @@ public class Singleton{
 	protected static class InnerClassSingleton{
 		private static final InnerClassSingleton instance = new InnerClassSingleton();
 		private InnerClassSingleton(){}
-
 	}
+
 	public static InnerClassSingleton getInstance(){
 		return InnerClassSingleton.instance;
 	}
